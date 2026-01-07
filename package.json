@@ -1,7 +1,38 @@
 {
-  "name": "arc",
-  "module": "index.ts",
+  "name": "arc-services",
+  "version": "0.1.0",
+  "description": "Arc services client library",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build index.ts --outdir dist --target node --format esm && bun run build:types",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "prepublishOnly": "bun run build",
+    "test": "bun test"
+  },
+  "keywords": [
+    "arc",
+    "arc-services",
+    "authentication",
+    "api-client"
+  ],
+  "author": "andr1ww <me@andr1ww.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arc-Services/Arc-Typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Arc-Services/Arc-Typescript/issues"
+  },
+  "homepage": "https://github.com/Arc-Services/Arc-Typescript#readme",
   "devDependencies": {
     "@types/bun": "latest"
   },
@@ -10,5 +41,8 @@
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
